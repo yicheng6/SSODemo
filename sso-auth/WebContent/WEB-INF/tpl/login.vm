@@ -1,24 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>Certification System&nbsp;-&nbsp;Login</title>
+		<title>集中认证&nbsp;-&nbsp;登陆</title>
 	</head>
 	<body>
-		<form action="/SSOAuth" method="post">
-			<input type="hidden" name="action" value="login" />
-			<input type="hidden" name="gotoURL" value="" />
+		<h3>
+			登陆
+        </h3>
+		<form action="logintoauth" method="post">
+			<input type="hidden" name="gotoURL" value="$!{gotoUrl}" />
 			<table>
 				<tr>
 					<td>
-						username:
+						账号:
 					</td>
 					<td>
-						<input type="text" name="username" />
+						<input type="text" name="username" />$!{username-error}
 					</td>
 				</tr>
 				<tr>
 					<td>
-						password:
+						密码:
 					</td>
 					<td>
 						<input type="password" name="password" />
@@ -26,18 +28,7 @@
 				</tr>
 				<tr>
 					<td>
-						&nbsp;
-					</td>
-					<td>
-						<input type="checkbox" name="autoAuth" value="1" />Automatic Login week
-					</td>
-				</tr>
-				<tr>
-					<td>
-						&nbsp;
-					</td>
-					<td>
-						<input type="submit" value="Login" />
+						<input type="submit" value="登陆" />
 					</td>
 				</tr>
 			</table>
