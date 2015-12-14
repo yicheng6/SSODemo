@@ -26,7 +26,7 @@ public class AuthController {
 	}
 
 	//获取登陆页面
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login")
 	public String login(HttpServletRequest request, Model model) {
 		String gotoUrl = request.getParameter("gotoUrl");
 		model.addAttribute("gotoUrl", gotoUrl);
@@ -35,16 +35,20 @@ public class AuthController {
 	
 	//登陆提交验证跳转
 	@RequestMapping(value = "/logintoauth", method = RequestMethod.POST)
-	public String loginToAuth(HttpServletRequest request, RedirectAttributes redirectAttributes) {
+	public String loginToAuth(HttpServletRequest request, Model model) {
 		//验证用户名是否存在
-		if(!accounts.containsKey(request.getParameter("username"))) {
-//			转发方式
-//			request.setAttribute("username-error", "username not exits!");
-//			return "forward:/login";
+		if (!accounts.containsKey(request.getParameter("username"))) {
+			//转发方式（核实清楚bug：login方法不能限定为GET方式，request对象不会匹配）
+			model.addAttribute("username-error", "用户名不存在！");
+			return "forward:/login";
 			
 			//重定向存储attribute
-			redirectAttributes.addFlashAttribute("username-error", "username not exits!");
-			return "redirect:/login";
+			//redirectAttributes.addFlashAttribute("username-error", "username not exits!");
+			//return "redirect:/login";
+		}
+		if (!accounts.get(request.getParameter("username")).equals(request.getParameter("password"))) {
+			model.addAttribute("password-error", "密码不匹配！");
+			return "forward:/login";
 		}
 		return "test";
 	}
