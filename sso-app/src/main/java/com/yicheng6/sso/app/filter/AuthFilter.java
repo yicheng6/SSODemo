@@ -1,4 +1,4 @@
-package com.yicheng6.filter;
+package com.yicheng6.sso.app.filter;
 
 import java.io.IOException;
 
@@ -47,13 +47,13 @@ public class AuthFilter implements Filter {
 			}
 		}
 		if (ticket != null) 
-			authCookie();
+			authCookie(request, response, chain);
 		else
 			response.sendRedirect(URL);
 	}
 	
-	public void authCookie() {
-		
+	public void authCookie(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
+		chain.doFilter(request, response);
 	}
 
 	@Override

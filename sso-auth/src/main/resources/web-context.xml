@@ -11,6 +11,14 @@
 
 	<!-- 使用RedirectAttributes，使用下面标签并提升xsd版本3.1以上 -->
 	<mvc:annotation-driven /> 
+	
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:sso.properties</value>
+			</list>
+		</property>
+	</bean>
 
 	<bean id="velocityConfig"
 		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
