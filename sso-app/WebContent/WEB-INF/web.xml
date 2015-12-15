@@ -39,7 +39,7 @@
     
     <filter>
     	<filter-name>authFilter</filter-name>
-    	<filter-class>com.yicheng6.filter.AuthFilter</filter-class>
+    	<filter-class>com.yicheng6.sso.app.filter.AuthFilter</filter-class>
     	<init-param>
     		<param-name>authService</param-name>
     		<param-value></param-value>

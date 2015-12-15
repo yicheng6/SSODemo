@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd"
 	default-lazy-init="false">
 
-	<context:component-scan base-package="com.yicheng6.ssoauth.controller" />
+	<context:component-scan base-package="com.yicheng6.sso.auth.controller" />
 
 	<!-- 使用RedirectAttributes，使用下面标签并提升xsd版本3.1以上 -->
 	<mvc:annotation-driven /> 

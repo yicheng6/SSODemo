@@ -33,7 +33,8 @@ public class AuthFilter implements Filter {
 		
 		//跳转登陆地址参数
 		String param = request.getQueryString();
-		String URL = loginUrl + "?gotoUrl=" + (param != null ? request.getRequestURL().append("?").append(param).toString() : request.getRequestURI());
+		//request.getRequestURI() 不包含域名端口
+		String URL = loginUrl + "?gotoUrl=" + (param != null ? request.getRequestURL().append("?").append(param).toString() : request.getRequestURL().toString());
 		
 		//获取指定cookie进行分发
 		Cookie ticket = null;

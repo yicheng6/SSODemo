@@ -24,11 +24,11 @@ public class AuthController {
 
 	private Map<String, AuthToken> tokens;
 
-	// 获取sso.properties参数
-	@Value("cookieName")
+	// ${}方式获取sso.properties参数
+	@Value("${cookieName}")
 	private String cookieName;
 
-	@Value("domainName")
+	@Value("${domainName}")
 	private String domainName;
 
 	private AuthIdManager authIdManager;
