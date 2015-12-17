@@ -13,7 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yicheng6.sso.auth.model.AuthMessage;
 import com.yicheng6.sso.auth.model.AuthToken;
 import com.yicheng6.sso.auth.util.AuthIdManager;
 
@@ -94,5 +97,19 @@ public class AuthController {
 		String gotoURL = request.getParameter("gotoURL");
 		return "redirect:" + gotoURL;
 	}
-
+	
+	@RequestMapping(value = "/auth", method = RequestMethod.POST)
+	public @ResponseBody AuthMessage authToken(@RequestParam String tokenKey) {
+		
+		AuthMessage authMessage = new AuthMessage();
+		if (tokens.containsKey(tokenKey)) {
+			authMessage.setCode("200");
+			authMessage.setToken(tokens.get(tokenKey));
+			authMessage.setMessage("认证成功");
+		} else {
+			authMessage.setCode("404");
+			authMessage.setMessage("认证失败");
+		}
+		return authMessage;
+	}
 }

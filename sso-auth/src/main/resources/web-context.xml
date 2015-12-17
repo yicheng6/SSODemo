@@ -38,5 +38,17 @@
 		<property name="allowSessionOverride" value="true" />
 		<property name="allowRequestOverride" value="true" />
 	</bean>
+	
+	<!-- Json自动转换配置 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="mappingJacksonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
 
+	<bean id="mappingJacksonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
 </beans>
