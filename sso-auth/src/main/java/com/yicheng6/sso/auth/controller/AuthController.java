@@ -92,6 +92,13 @@ public class AuthController {
 		Cookie cookie = new Cookie(cookieName, tokenKey);
 		cookie.setDomain(domainName);
 		cookie.setPath("/");
+		
+		// cookie保存时间
+		int expiry = -1;
+		if ("1".equals(request.getParameter("remember"))) {
+			expiry = 7 * 24 * 3600;
+		}
+		cookie.setMaxAge(expiry);
 		response.addCookie(cookie);
 
 		String gotoURL = request.getParameter("gotoURL");

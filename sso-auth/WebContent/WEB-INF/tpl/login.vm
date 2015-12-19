@@ -41,7 +41,16 @@
 							<td class="error text-danger" colspan="2">
 								$!{password-error}
 							</td>
-						</tr>	
+						</tr>
+						<tr>
+							<td>
+								&nbsp;
+                            </td>
+                            </td>
+							<td>
+								<input type="checkbox" name="remember" value="1"/>一周免登录
+							</td>
+						</tr>
         				<tr>
         					<td colspan="2">
         						<button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
