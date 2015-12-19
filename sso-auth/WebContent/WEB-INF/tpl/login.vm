@@ -1,38 +1,56 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
-		<title>集中认证&nbsp;-&nbsp;登录</title>
-	</head>
-	<body>
-		<h3>
-			登录
-        </h3>
-		<form action="logintoauth" method="post">
-			<input type="hidden" name="gotoURL" value="$!{gotoUrl}" />
-			<table>
-				<tr>
-					<td>
-						账号:
-					</td>
-					<td>
-						<input type="text" name="username" />$!{username-error}
-					</td>
-				</tr>
-				<tr>
-					<td>
-						密码:
-					</td>
-					<td>
-						<input type="password" name="password" />$!{password-error}
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="submit" value="登录" />
-					</td>
-				</tr>
-			</table>
-
-		</form>
-	</body>
+<head>
+	<title>集中认证&nbsp;-&nbsp;登录</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+	<div class="login-box">
+        <div class="login-title">
+            <h3>集中认证&nbsp;-&nbsp;登录</h3>
+		</div>
+        <div class="login-body">
+    		<form action="logintoauth" method="post">
+    			<input type="hidden" name="gotoURL" value="$!{gotoUrl}" />
+				<div class="login-table">
+        			<table>
+        				<tr>
+        					<td>
+        						账号:
+        					</td>
+        					<td>
+        						<input type="text" name="username" />
+        					</td>
+							
+        				</tr>
+						<tr>
+							<td class="error text-danger" colspan="2">
+								$!{username-error}
+							</td>
+						</tr>	
+        				<tr>
+        					<td>
+        						密码:
+        					</td>
+        					<td>
+        						<input type="password" name="password" />
+        					</td>
+        				</tr>
+						<tr>
+							<td class="error text-danger" colspan="2">
+								$!{password-error}
+							</td>
+						</tr>	
+        				<tr>
+        					<td colspan="2">
+        						<button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+        					</td>
+        				</tr>
+        			</table>
+                </div>
+    		</form>
+		</div>
+    </div>
+</body>
 </html>

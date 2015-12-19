@@ -1,0 +1,18 @@
+
+body {
+  font-family: "Microsoft Yahei","微软雅黑";
+  font-weight: 400;
+}
+
+.login-box {
+  width: 183px;
+  margin: 10% auto;
+}
+.login-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.error {
+  text-align: center;
+}
+
